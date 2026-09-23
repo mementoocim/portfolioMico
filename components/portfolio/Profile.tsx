@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, FileText, Plus } from "lucide-react";
 import { EXPERIENCE, PERSONAL, SKILLS } from "@/data/portfolioData";
 import { Mark } from "./Mark";
 
@@ -53,14 +53,26 @@ export function Profile() {
                 Admission Test System and assisted staff during live operations.
               </p>
               <p>
-                Currently supports data and office workflows at DTI–Isabela. Adaptable, patient,
-                and quick to learn new software, with communication and a service-oriented
-                approach.
+                Currently supports data and office workflows at DTI–Isabela. Adaptable, patient, and
+                quick to learn new software, with communication and a service-oriented approach.
               </p>
             </div>
-            <a className="text-link" href="#contact">
-              Open to my next chapter <ArrowUpRight size={17} />
-            </a>
+            <div className="profile-actions">
+              <a
+                href={PERSONAL.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="resume-primary-btn"
+                aria-label="View Full Resume (PDF)"
+              >
+                <FileText size={16} />
+                <span>View Full Resume</span>
+                <ArrowUpRight size={14} className="resume-btn-arrow" />
+              </a>
+              <a className="text-link" href="#contact">
+                Open to my next chapter <ArrowUpRight size={17} />
+              </a>
+            </div>
           </div>
         </div>
         <div className="capabilities" id="skills">

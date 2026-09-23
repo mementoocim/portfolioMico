@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowDownRight } from "lucide-react";
+import { ArrowDown, ArrowDownRight, ArrowUpRight, FileText } from "lucide-react";
 import { Mark } from "./Mark";
 import { PERSONAL } from "@/data/portfolioData";
 
@@ -31,10 +31,22 @@ export function Introduction() {
             <span>Systems & full-stack developer</span>
           </div>
         </div>
-        <p className="intro-description">
-          I turn complex workflows into clear digital experiences. From the database underneath to
-          the details you can feel.
-        </p>
+        <div className="intro-center">
+          <p className="intro-description">
+            I turn complex workflows into clear digital experiences. From the database underneath to
+            the details you can feel.
+          </p>
+          <a
+            href={PERSONAL.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="intro-resume-link"
+          >
+            <FileText size={14} />
+            <span>View Resume (PDF)</span>
+            <ArrowUpRight size={13} />
+          </a>
+        </div>
         <a href="#projects" className="explore-link">
           <span>Explore selected work</span>
           <span className="round-arrow">

@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { ArrowUpRight, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, FileText, Moon, Sun } from "lucide-react";
 import { Mark } from "@/components/portfolio/Mark";
+import { PERSONAL } from "@/data/portfolioData";
 
 const links = [
   { id: "projects", label: "Work", number: "01" },
@@ -56,6 +57,16 @@ export function Navigation() {
           ))}
         </div>
         <div className="nav-actions">
+          <a
+            href={PERSONAL.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-resume-btn"
+            aria-label="View Resume (PDF)"
+          >
+            <FileText size={13} />
+            <span>Resume</span>
+          </a>
           <a className="availability" href="#contact">
             <span className="status-dot" />
             Open to opportunities

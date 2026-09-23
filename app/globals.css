@@ -244,6 +244,44 @@ a:hover > .round-arrow {
 .dark .availability .status-dot {
   color: #b1c790;
 }
+.nav-resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 15px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  text-decoration: none;
+  line-height: 1;
+  transition:
+    background 200ms var(--ease),
+    color 200ms var(--ease),
+    border-color 200ms var(--ease),
+    transform 200ms var(--ease),
+    box-shadow 200ms var(--ease);
+}
+.nav-resume-btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+.nav-resume-btn svg {
+  color: var(--accent);
+  transition:
+    transform 200ms var(--ease),
+    color 200ms var(--ease);
+}
+.nav-resume-btn:hover svg {
+  color: var(--paper);
+}
 .theme-toggle,
 .icon-button {
   width: 44px;
@@ -339,11 +377,44 @@ a:hover > .round-arrow {
   font-size: 11px;
   color: var(--muted);
 }
+.intro-center {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 .intro-description {
   max-width: 355px;
   font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
+}
+.intro-resume-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    color 200ms var(--ease),
+    transform 200ms var(--ease),
+    border-color 200ms var(--ease);
+}
+.intro-resume-link:hover {
+  color: var(--orange);
+  border-color: var(--orange);
+  transform: translateX(3px);
+}
+.intro-resume-link svg:last-child {
+  transition: transform 200ms var(--ease);
+}
+.intro-resume-link:hover svg:last-child {
+  transform: translate(2px, -2px);
 }
 .explore-link {
   display: flex;
@@ -790,8 +861,49 @@ a:hover > .round-arrow {
   line-height: 1.9;
   color: var(--profile-muted);
 }
-.profile-statement .text-link {
-  margin-top: 24px;
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.profile-actions .text-link {
+  margin-top: 0;
+}
+.resume-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 9999px;
+  text-decoration: none;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(189, 61, 35, 0.28);
+  transition:
+    background 200ms var(--ease),
+    border-color 200ms var(--ease),
+    transform 200ms var(--ease),
+    box-shadow 200ms var(--ease);
+}
+.resume-primary-btn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(233, 97, 64, 0.38);
+}
+.resume-btn-arrow {
+  transition: transform 200ms var(--ease);
+}
+.resume-primary-btn:hover .resume-btn-arrow {
+  transform: translate(2px, -2px);
 }
 .subsection-heading {
   display: grid;
@@ -1502,7 +1614,12 @@ a:hover > .round-arrow {
     border: 0;
   }
   .nav-actions {
-    gap: 0;
+    gap: 6px;
+  }
+  .nav-resume-btn {
+    padding: 6px 11px;
+    font-size: 10px;
+    gap: 5px;
   }
   .introduction {
     padding-top: 28px;
@@ -1554,6 +1671,9 @@ a:hover > .round-arrow {
     padding-left: 31px;
     max-width: 325px;
     font-size: 12px;
+  }
+  .intro-resume-link {
+    padding-left: 31px;
   }
   .explore-link {
     grid-column: 1;
@@ -1746,8 +1866,14 @@ a:hover > .round-arrow {
   .bio-columns p {
     font-size: 12px;
   }
+  .profile-actions {
+    margin-top: 14px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .profile-statement .text-link {
-    margin-top: -10px;
+    margin-top: 0;
   }
   .subsection-heading h3 {
     font-size: 25px;
