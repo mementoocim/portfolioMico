@@ -47,14 +47,15 @@ export function Profile() {
             </h2>
             <div className="bio-columns">
               <p>
-                I’m Mico, a recent BSICT graduate from Isabela State University. I build full-stack
-                applications, shape relational databases, and turn manual campus workflows into
-                working software.
+                BS Information Technology graduate with hands-on experience supporting users,
+                resolving software and web application issues, documenting workflows, and
+                maintaining accurate digital records. Developed and deployed the CollegeBound
+                Admission Test System and assisted staff during live operations.
               </p>
               <p>
-                My work spans university systems and digital media: from deploying admissions
-                software to editing content and managing a community of nearly five million
-                followers.
+                Currently supports data and office workflows at DTI–Isabela. Adaptable, patient,
+                and quick to learn new software, with communication and a service-oriented
+                approach.
               </p>
             </div>
             <a className="text-link" href="#contact">
