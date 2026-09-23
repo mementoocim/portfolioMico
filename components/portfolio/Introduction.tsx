@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, FileText, Plus } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Plus } from "lucide-react";
 import { Mark } from "./Mark";
 import { PERSONAL } from "@/data/portfolioData";
 
@@ -62,7 +62,6 @@ export function Introduction() {
               className="hero-resume-btn"
               aria-label="View Resume (PDF)"
             >
-              <FileText size={15} />
               <span>View Resume (PDF)</span>
               <ArrowUpRight size={14} />
             </a>
