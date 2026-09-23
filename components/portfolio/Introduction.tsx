@@ -6,7 +6,7 @@ export function Introduction() {
   return (
     <section className="introduction shell" id="top" aria-labelledby="intro-title">
       <div className="intro-eyebrow meta">
-        <span>Independent mind. Connected systems.</span>
+        <span>People-first support. Technical foundation.</span>
         <span>Portfolio / 2026</span>
       </div>
       <div className="headline-composition">
@@ -18,7 +18,7 @@ export function Introduction() {
         </h1>
         <div className="identity-stamp">
           <Mark />
-          <span className="meta">Structure × feeling</span>
+          <span className="meta">Support × Systems</span>
         </div>
       </div>
       <div className="intro-bottom">
@@ -28,13 +28,14 @@ export function Introduction() {
           </span>
           <div>
             <p>{PERSONAL.name}</p>
-            <span>Systems & full-stack developer</span>
+            <span>IT Graduate | Systems & User Support</span>
           </div>
         </div>
         <div className="intro-center">
           <p className="intro-description">
-            I turn complex workflows into clear digital experiences. From the database underneath to
-            the details you can feel.
+            BS Information Technology graduate bridging technical systems and user support.
+            Experienced in troubleshooting, resolving software issues, testing workflows, and
+            assisting users with patience and clear communication.
           </p>
           <a
             href={PERSONAL.resumeUrl}
@@ -57,7 +58,7 @@ export function Introduction() {
       <div className="intro-footnote meta">
         <span>Based in Isabela, Philippines</span>
         <span>
-          Thoughtful interfaces. Real-world systems.
+          User-centered support. Reliable systems.
           <ArrowDownRight size={14} />
         </span>
       </div>

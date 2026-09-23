@@ -33,23 +33,24 @@ export interface ExperienceItem {
 // ---------------------------------------------------------------------------
 export const PERSONAL = {
   name: "Mico Balmaceda",
-  role: "Fresh Graduate / Entry-Level Systems & Full-Stack Developer",
+  role: "Information Technology Graduate | Systems & User Support",
   location: "Upi, Gamu, Isabela, Philippines",
   email: "balmacedamico09@gmail.com",
   phone: "+63 994 158 6734",
   photo: "/images/profile/mico.png",
   resumeUrl: "/resume.pdf",
   education: {
-    degree: "Bachelor of Science in Information and Communications Technology",
+    degree:
+      "Bachelor of Science in Information Technology, Major in Web and Mobile Application Development",
     school: "Isabela State University — Ilagan Campus",
-    period: "2021 – 2026",
+    period: "Graduated 2026",
   },
   certification: {
     title: "Information Technology Specialist in Databases",
     date: "Passed June 2024",
     issuer: "Certiport — A Pearson VUE Business",
   },
-  bio: "Recent BSICT graduate with hands-on experience developing and deploying campus-level production systems, relational database architecture, and full-stack web applications. Seeking an entry-level software or systems development role.",
+  bio: "BS Information Technology graduate with hands-on experience supporting users, resolving software and web application issues, documenting workflows, and maintaining accurate digital records. Developed and deployed the CollegeBound Admission Test System and assisted staff during live operations. Currently supports data and office workflows at DTI–Isabela BDD. Adaptable, patient, and quick to learn new software, with communication, problem solving, and a service-oriented approach.",
 };
 
 // ---------------------------------------------------------------------------
@@ -105,31 +106,37 @@ export const PROJECTS: ProjectData[] = [
 // ---------------------------------------------------------------------------
 export const SKILLS: SkillCategory[] = [
   {
-    title: "Database & Backend",
+    title: "Customer Experience & User Support",
     skills: [
-      "MySQL",
-      "SQL",
-      "Database Normalization",
-      "Schema Design",
-      "Data Integrity",
-      "PHP",
-      "REST APIs",
+      "Customer Service & User Support",
+      "Clear Written & Verbal Communication",
+      "Patience & Active Listening",
+      "Issue Resolution & Follow-up",
+      "Problem Solving & User Empathy",
+      "User Assistance & Onboarding",
     ],
   },
   {
-    title: "Frontend & Web",
-    skills: ["JavaScript (ES6+)", "TypeScript", "React", "Next.js", "HTML5 / CSS3", "Tailwind CSS"],
+    title: "Systems, Testing & Data",
+    skills: [
+      "Software & Web Application Support",
+      "Troubleshooting & Diagnostics",
+      "Feature Testing & Quality Assurance",
+      "System Workflow Documentation",
+      "Attention to Detail & Data Accuracy",
+      "Data Validation & Excel Records",
+    ],
   },
   {
-    title: "Systems & Support",
+    title: "Web & Database Foundation",
     skills: [
-      "System Deployment & Maintenance",
-      "Network Setup",
-      "Computer Troubleshooting",
-      "AI-Assisted Development",
+      "PHP",
+      "MySQL & Relational Databases",
+      "SQL Data Queries",
+      "JavaScript (ES6+)",
+      "HTML5 & CSS3",
+      "Tailwind CSS",
       "Git & GitHub",
-      "OpenCV",
-      "Biometrics & Sensor Integration",
     ],
   },
 ];
@@ -139,25 +146,27 @@ export const SKILLS: SkillCategory[] = [
 // ---------------------------------------------------------------------------
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    role: "Systems Developer & OJT Trainee",
+    role: "Government Intern (GIP) — BDD",
+    organization: "Department of Trade and Industry — Isabela Provincial Office (BDD)",
+    period: "September 2026 – Present",
+    bullets: [
+      "Encode and validate Excel records, prepare official documents, and organize digital files with strong attention to detail.",
+      "Support data and office workflows, coordinating closely with BDD staff to complete requests accurately and on time.",
+      "Apply active listening, patience, and customer service skills when assisting clients and handling day-to-day office inquiries.",
+      "Perform data validation, file auditing, and routine troubleshooting to maintain reliable digital records.",
+    ],
+  },
+  {
+    role: "Web Development Intern at MIS Office",
     organization:
       "Management Information Systems (MIS) Office — Isabela State University, Ilagan Campus",
     period: "January 2026 – April 2026",
     bullets: [
-      "Built and deployed the production Digital College Admission Test & Enrollment System used by the university.",
-      "Optimized MySQL schemas and improved query performance for academic evaluation workloads.",
-      "Assisted with campus server administration, network setup, and computer hardware troubleshooting.",
-      "Collaborated with faculty and department staff to digitize manual workflows into automated pipelines.",
-    ],
-  },
-  {
-    role: "Social Media Page Administrator & Video Editor",
-    organization: "Public Figure Facebook Page (~5 Million Followers)",
-    period: "2022 – Present",
-    bullets: [
-      "Managed and maintained a Facebook page with nearly 5 million followers.",
-      "Handled video editing, post scheduling, content uploads, and community moderation.",
-      "Maintained consistent posting cadence and audience engagement across the platform.",
+      "Developed and deployed the CollegeBound Admission Test System for actual university operations.",
+      "Assisted staff users with system navigation, answering questions, and providing live issue resolution during testing operations.",
+      "Tested features, troubleshot software and web application issues, and documented system workflows.",
+      "Maintained accurate database-driven records using PHP and MySQL.",
+      "Gathered user feedback, practiced clear communication, and coordinated with the MIS team to continuously improve the system.",
     ],
   },
 ];

@@ -9,7 +9,7 @@ export function Profile() {
       <div className="shell">
         <div className="profile-heading">
           <span className="section-label meta">
-            <span>02 /</span> The person behind the systems
+            <span>02 /</span> The person behind the support & systems
           </span>
           <Mark />
         </div>
@@ -32,9 +32,9 @@ export function Profile() {
               <span>PH ↗</span>
             </div>
             <p className="portrait-note">
-              A developer with a systems mindset
+              An IT graduate with a support mindset
               <br />
-              and an eye for the details.
+              and an eye for user detail.
             </p>
           </div>
           <div className="profile-statement">
@@ -43,18 +43,22 @@ export function Profile() {
               <br />
               <span>So does the</span>
               <br />
-              <em>bigger picture.</em>
+              <em>human experience.</em>
             </h2>
             <div className="bio-columns">
               <p>
-                BS Information Technology graduate with hands-on experience supporting users,
-                resolving software and web application issues, documenting workflows, and
-                maintaining accurate digital records. Developed and deployed the CollegeBound
-                Admission Test System and assisted staff during live operations.
+                BS Information Technology graduate (Major in Web and Mobile Application Development
+                — Graduated 2026) with hands-on experience supporting users, resolving software and
+                web application issues, documenting workflows, and maintaining accurate digital
+                records. Developed and deployed the CollegeBound Admission Test System for actual
+                school operations and assisted staff during live operations.
               </p>
               <p>
-                Currently supports data and office workflows at DTI–Isabela. Adaptable, patient, and
-                quick to learn new software, with communication and a service-oriented approach.
+                Currently supports data and office workflows as a Government Intern (GIP) at the
+                Department of Trade and Industry — Isabela Provincial Office (BDD). Adaptable,
+                patient, and quick to learn new software, combining active listening, problem
+                solving, and attention to detail with foundational skills in PHP, MySQL, and web
+                development.
               </p>
             </div>
             <div className="profile-actions">
@@ -78,7 +82,7 @@ export function Profile() {
         <div className="capabilities" id="skills">
           <div className="subsection-heading">
             <span className="meta">The toolkit</span>
-            <h3>From interface to infrastructure.</h3>
+            <h3>From user empathy to technical execution.</h3>
           </div>
           <div className="capability-list">
             {SKILLS.map((category, index) => (
@@ -97,7 +101,7 @@ export function Profile() {
         <div className="experience-records" id="experience">
           <div className="subsection-heading">
             <span className="meta">The journey</span>
-            <h3>Learning by building.</h3>
+            <h3>Experience supporting users and systems.</h3>
           </div>
           <div className="records-list">
             {EXPERIENCE.map((job, index) => (

@@ -25,18 +25,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Mico Balmaceda — Systems & Full-Stack Developer",
+  title: "Mico Balmaceda — Information Technology Graduate | Systems & User Support",
   description:
-    "Personal portfolio of Mico Balmaceda — fresh BSICT graduate with experience in campus production systems, relational databases, and full-stack web development.",
+    "Portfolio of Mico Balmaceda — BS Information Technology graduate (Graduated 2026) experienced in systems and user support, customer service, troubleshooting, workflow documentation, testing, and data validation.",
   keywords: [
     "Mico Balmaceda",
-    "Developer",
-    "Full-Stack",
-    "Portfolio",
-    "MySQL",
+    "Information Technology Graduate",
+    "Systems and User Support",
+    "Customer Experience Associate",
+    "Technical Support",
+    "Troubleshooting",
+    "Data Validation",
+    "Workflow Documentation",
+    "Software Testing",
     "PHP",
-    "React",
-    "Next.js",
+    "MySQL",
+    "Web Development",
+    "DTI Isabela",
     "Isabela State University",
   ],
   authors: [{ name: "Mico Balmaceda" }],

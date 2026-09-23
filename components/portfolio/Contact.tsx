@@ -33,7 +33,7 @@ export function Contact() {
           <span className="section-label meta">03 / What’s next</span>
           <span className="meta">
             <span className="status-dot" />
-            Open to entry-level opportunities
+            Open to Systems & User Support / Customer Experience roles
           </span>
         </div>
         <div className="contact-composition">
@@ -52,8 +52,9 @@ export function Contact() {
         </div>
         <div className="contact-details">
           <p>
-            Have a system to build, a problem to untangle,
-            <br className="desktop-break" /> or a place on your team? I’d love to hear about it.
+            Looking for someone patient, tech-savvy, and attentive to user needs?
+            <br className="desktop-break" /> Whether it’s user support, customer experience, or
+            system workflows, I’d love to connect.
           </p>
           <div className="contact-links">
             <div className="email-row">
