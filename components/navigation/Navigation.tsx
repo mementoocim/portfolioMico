@@ -7,8 +7,8 @@ import { Mark } from "@/components/portfolio/Mark";
 import { PERSONAL } from "@/data/portfolioData";
 
 const links = [
-  { id: "projects", label: "Work", number: "01" },
-  { id: "about", label: "About", number: "02" },
+  { id: "about", label: "About", number: "01" },
+  { id: "projects", label: "Work", number: "02" },
   { id: "contact", label: "Contact", number: "03" },
 ];
 

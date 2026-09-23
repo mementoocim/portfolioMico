@@ -52,7 +52,7 @@ export function SelectedWork() {
     <section className="selected-work shell" id="projects" aria-labelledby="work-title">
       <div className="section-heading">
         <div className="section-label meta">
-          <span className="accent-text">01 /</span> Selected work
+          <span className="accent-text">02 /</span> Selected work
         </div>
         <h2 id="work-title">
           Ideas, put to work<span className="accent-text">.</span>

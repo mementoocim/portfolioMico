@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight, FileText, Plus } from "lucide-react";
+import { ArrowUpRight, Plus } from "lucide-react";
 import { EXPERIENCE, PERSONAL, SKILLS } from "@/data/portfolioData";
 import { Mark } from "./Mark";
 
@@ -9,27 +9,63 @@ export function Profile() {
       <div className="shell">
         <div className="profile-heading">
           <span className="section-label meta">
-            <span>02 /</span> The person behind the support & systems
+            <span>01 /</span> The person behind the support & systems
           </span>
           <Mark />
         </div>
         <div className="profile-intro">
-          <div className="portrait-column">
-            <div className="portrait-frame">
-              <Image
-                src="/images/profile/mico.png"
-                alt="Mico Balmaceda"
-                width={640}
-                height={640}
-                sizes="(max-width: 600px) 65vw, 330px"
-              />
-              <span className="portrait-corner" aria-hidden="true">
-                <Plus size={24} />
-              </span>
-            </div>
-            <div className="portrait-caption meta">
-              <span>Mico Balmaceda</span>
-              <span>PH ↗</span>
+          <div className="credentials-column">
+            <div className="credentials-card">
+              <div className="credentials-card-header">
+                <div className="credentials-avatar">
+                  <Image
+                    src="/images/profile/mico.png"
+                    alt="Mico Balmaceda"
+                    width={80}
+                    height={80}
+                    sizes="48px"
+                  />
+                </div>
+                <div>
+                  <span className="credentials-name">{PERSONAL.name}</span>
+                  <span className="credentials-title meta">IT Graduate · Systems & Support</span>
+                </div>
+              </div>
+
+              <div className="credentials-divider" />
+
+              <div className="credentials-list">
+                <div className="credential-item">
+                  <span className="meta">Education</span>
+                  <p>{PERSONAL.education.degree}</p>
+                  <span className="credential-sub">
+                    {PERSONAL.education.school} · {PERSONAL.education.period}
+                  </span>
+                </div>
+
+                <div className="credential-item">
+                  <span className="meta">Certification</span>
+                  <p>{PERSONAL.certification.title}</p>
+                  <span className="credential-sub">{PERSONAL.certification.issuer}</span>
+                </div>
+
+                <div className="credential-item">
+                  <span className="meta">Hands-on Experience</span>
+                  <p>Government Intern (GIP) & Operations Support</p>
+                  <span className="credential-sub">DTI Isabela BDD · CollegeBound Deployment</span>
+                </div>
+
+                <div className="credential-item">
+                  <span className="meta">Location & Availability</span>
+                  <p>{PERSONAL.location}</p>
+                  <span className="credential-sub">Open to full-time support & IT roles</span>
+                </div>
+              </div>
+
+              <div className="credentials-footer meta">
+                <span className="status-dot" />
+                <span>Available for immediate placement</span>
+              </div>
             </div>
             <p className="portrait-note">
               An IT graduate with a support mindset
@@ -62,17 +98,6 @@ export function Profile() {
               </p>
             </div>
             <div className="profile-actions">
-              <a
-                href={PERSONAL.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="resume-primary-btn"
-                aria-label="View Full Resume (PDF)"
-              >
-                <FileText size={16} />
-                <span>View Full Resume</span>
-                <ArrowUpRight size={14} className="resume-btn-arrow" />
-              </a>
               <a className="text-link" href="#contact">
                 Open to my next chapter <ArrowUpRight size={17} />
               </a>

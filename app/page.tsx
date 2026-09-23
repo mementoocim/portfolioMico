@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/navigation/Navigation";
 import { Introduction } from "@/components/portfolio/Introduction";
-import { SelectedWork } from "@/components/portfolio/SelectedWork";
 import { Profile } from "@/components/portfolio/Profile";
+import { SelectedWork } from "@/components/portfolio/SelectedWork";
 import { Contact } from "@/components/portfolio/Contact";
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
       <Navigation />
       <main id="main">
         <Introduction />
-        <SelectedWork />
         <Profile />
+        <SelectedWork />
       </main>
       <Contact />
     </>
