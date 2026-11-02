@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { ArrowUpRight, FileText, Moon, Sun } from "lucide-react";
+import { ArrowUpRight, Moon, Sun } from "lucide-react";
 import { Mark } from "@/components/portfolio/Mark";
 import { PERSONAL } from "@/data/portfolioData";
 
 const links = [
-  { id: "about", label: "About", number: "01" },
-  { id: "projects", label: "Work", number: "02" },
-  { id: "contact", label: "Contact", number: "03" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Work" },
+  { id: "contact", label: "Contact" },
 ];
 
 export function Navigation() {
@@ -36,7 +36,7 @@ export function Navigation() {
 
   return (
     <header className="site-header">
-      <nav className="navigation shell" aria-label="Main navigation">
+      <nav className="nav shell" aria-label="Main navigation">
         <a href="#top" className="brand" aria-label="Mico Balmaceda, back to top">
           <Mark />
           <span>
@@ -48,10 +48,9 @@ export function Navigation() {
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={active === link.id ? "active" : ""}
+              className={active === link.id ? "is-active" : undefined}
               aria-current={active === link.id ? "location" : undefined}
             >
-              <span className="nav-number">{link.number}</span>
               {link.label}
             </a>
           ))}
@@ -61,25 +60,20 @@ export function Navigation() {
             href={PERSONAL.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="nav-resume-btn"
-            aria-label="View Resume (PDF)"
+            className="button button-secondary button-small"
           >
-            <FileText size={13} />
-            <span>Resume</span>
-          </a>
-          <a className="availability" href="#contact">
-            <span className="status-dot" />
-            Open to opportunities
-            <ArrowUpRight size={14} />
+            Resume
+            <ArrowUpRight size={15} />
           </a>
           <button
-            className="theme-toggle"
+            type="button"
+            className="icon-button"
             onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             aria-label={
               mounted && resolvedTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"
             }
           >
-            {mounted && resolvedTheme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+            {mounted && resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         </div>
       </nav>

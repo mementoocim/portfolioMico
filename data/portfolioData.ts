@@ -42,15 +42,19 @@ export const PERSONAL = {
   education: {
     degree:
       "Bachelor of Science in Information Technology, Major in Web and Mobile Application Development",
-    school: "Isabela State University — Ilagan Campus",
+    school: "Isabela State University, Ilagan Campus",
     period: "Graduated 2026",
   },
   certification: {
     title: "Information Technology Specialist in Databases",
-    date: "Passed June 2024",
-    issuer: "Certiport — A Pearson VUE Business",
+    shortTitle: "IT Specialist, Databases",
+    date: "Awarded June 21, 2024",
+    issuer: "Certiport, a Pearson VUE business",
+    code: "5UBH-4wUQ",
+    certificateUrl: "/it-specialist-databases.pdf",
+    verifyUrl: "https://verify.certiport.com",
   },
-  bio: "BS Information Technology graduate with hands-on experience supporting users, resolving software and web application issues, documenting workflows, and maintaining accurate digital records. Developed and deployed the CollegeBound Admission Test System and assisted staff during live operations. Currently supports data and office workflows at DTI–Isabela BDD. Adaptable, patient, and quick to learn new software, with communication, problem solving, and a service-oriented approach.",
+  bio: "BS Information Technology graduate with hands-on experience supporting users, resolving software and web application issues, documenting workflows, and maintaining accurate digital records. Developed and deployed the CollegeBound Admission Test System and assisted staff during live operations. Adaptable, patient, and quick to learn new software, with communication, problem solving, and a service-oriented approach.",
 };
 
 // ---------------------------------------------------------------------------
@@ -63,7 +67,7 @@ export const PROJECTS: ProjectData[] = [
     category: "Admissions & enrollment",
     summary: "A clearer path from applicant to university student.",
     title: "CollegeBound: Digital College Admission Test & Enrollment System",
-    type: "Production Campus Infrastructure — Deployed on ISU-Ilagan Campus Server",
+    type: "Production Campus Infrastructure, Deployed on ISU-Ilagan Campus Server",
     image: "/images/projects/cat-system.jpg",
     imageWidth: 1920,
     imageHeight: 969,
@@ -128,15 +132,35 @@ export const SKILLS: SkillCategory[] = [
     ],
   },
   {
-    title: "Web & Database Foundation",
+    title: "Tech Stack",
     skills: [
-      "PHP",
-      "MySQL & Relational Databases",
-      "SQL Data Queries",
-      "JavaScript (ES6+)",
-      "HTML5 & CSS3",
+      "HTML5",
+      "CSS",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
       "Tailwind CSS",
-      "Git & GitHub",
+      "PHP",
+      "Node.js",
+      "MySQL",
+      "SQL",
+      "Supabase",
+      "Git",
+      "GitHub",
+      "XAMPP",
+      "Vercel",
+    ],
+  },
+  {
+    title: "AI-Assisted & Agentic Development",
+    skills: [
+      "Claude",
+      "Claude Code",
+      "ChatGPT",
+      "Cursor AI",
+      "Agentic Coding",
+      "AI-Assisted Development",
     ],
   },
 ];
@@ -146,21 +170,10 @@ export const SKILLS: SkillCategory[] = [
 // ---------------------------------------------------------------------------
 export const EXPERIENCE: ExperienceItem[] = [
   {
-    role: "Government Intern (GIP) — BDD",
-    organization: "Department of Trade and Industry — Isabela Provincial Office (BDD)",
-    period: "September 2026 – Present",
-    bullets: [
-      "Encode and validate Excel records, prepare official documents, and organize digital files with strong attention to detail.",
-      "Support data and office workflows, coordinating closely with BDD staff to complete requests accurately and on time.",
-      "Apply active listening, patience, and customer service skills when assisting clients and handling day-to-day office inquiries.",
-      "Perform data validation, file auditing, and routine troubleshooting to maintain reliable digital records.",
-    ],
-  },
-  {
     role: "Web Development Intern at MIS Office",
     organization:
-      "Management Information Systems (MIS) Office — Isabela State University, Ilagan Campus",
-    period: "January 2026 – April 2026",
+      "Management Information Systems (MIS) Office, Isabela State University, Ilagan Campus",
+    period: "January - April 2026",
     bullets: [
       "Developed and deployed the CollegeBound Admission Test System for actual university operations.",
       "Assisted staff users with system navigation, answering questions, and providing live issue resolution during testing operations.",

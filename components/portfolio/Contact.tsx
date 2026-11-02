@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
-import { ArrowUp, ArrowUpRight, Check, Copy } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowUp, ArrowUpRight, Check, Copy, Mail } from "lucide-react";
 import { PERSONAL } from "@/data/portfolioData";
 import { Mark } from "./Mark";
 
@@ -27,65 +27,58 @@ export function Contact() {
   }
 
   return (
-    <footer id="contact" className="contact-section">
+    <footer id="contact" className="contact">
       <div className="shell">
-        <div className="contact-top">
-          <span className="section-label meta">03 / What’s next</span>
-          <span className="meta">
-            <span className="status-dot" />
-            Open to Systems & User Support / Customer Experience roles
-          </span>
-        </div>
-        <div className="contact-composition">
-          <h2>
-            Good things
-            <br />
-            start with <em>hello.</em>
-          </h2>
-          <a
-            href={`mailto:${PERSONAL.email}`}
-            className="contact-arrow"
-            aria-label="Email Mico Balmaceda"
-          >
-            <ArrowUpRight strokeWidth={1} />
-          </a>
-        </div>
-        <div className="contact-details">
-          <p>
-            Looking for someone patient, tech-savvy, and attentive to user needs?
-            <br className="desktop-break" /> Whether it’s user support, customer experience, or
-            system workflows, I’d love to connect.
-          </p>
-          <div className="contact-links">
-            <div className="email-row">
-              <a href={`mailto:${PERSONAL.email}`}>{PERSONAL.email}</a>
-              <button className="copy-button" onClick={copyEmail} aria-label="Copy email address">
-                {copyState === "copied" ? <Check size={17} /> : <Copy size={17} />}
-              </button>
-            </div>
-            <span className="copy-feedback" role="status">
-              {copyState === "copied"
-                ? "Email copied."
-                : copyState === "failed"
-                  ? "Select the email address to copy it manually."
-                  : ""}
-            </span>
-            <a className="phone-link" href={`tel:${PERSONAL.phone.replace(/[^0-9+]/g, "")}`}>
-              {PERSONAL.phone}
-              <ArrowUpRight size={15} />
+        <div className="contact-panel reveal-on-scroll">
+          <div className="contact-copy">
+            <h2>Good things start with hello.</h2>
+            <p>
+              Looking for someone patient, tech-savvy, and attentive to user needs? Whether it’s
+              user support, customer experience, or system workflows, I’d love to connect.
+            </p>
+          </div>
+          <div className="contact-actions">
+            <a className="button button-dark" href={`mailto:${PERSONAL.email}`}>
+              <Mail size={18} />
+              Email me
             </a>
+            <div className="contact-lines">
+              <div className="email-row">
+                <a href={`mailto:${PERSONAL.email}`}>{PERSONAL.email}</a>
+                <button
+                  type="button"
+                  className="copy-button"
+                  onClick={copyEmail}
+                  aria-label="Copy email address"
+                >
+                  {copyState === "copied" ? <Check size={17} /> : <Copy size={17} />}
+                </button>
+              </div>
+              <span className="copy-feedback" role="status">
+                {copyState === "copied"
+                  ? "Email copied."
+                  : copyState === "failed"
+                    ? "Select the email address to copy it manually."
+                    : ""}
+              </span>
+              <a className="phone-link" href={`tel:${PERSONAL.phone.replace(/[^0-9+]/g, "")}`}>
+                {PERSONAL.phone}
+                <ArrowUpRight size={15} />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <a href="#top" className="footer-brand" aria-label="Back to top">
+        <div className="footer-bar">
+          <a href="#top" className="brand" aria-label="Back to top">
             <Mark />
             <span>
-              Made with intention.
-              <br />© {new Date().getFullYear()} {PERSONAL.name}
+              mico<span className="brand-dot">.</span>
             </span>
           </a>
-          <span className="footer-location">{PERSONAL.location}</span>
-          <a href="#top" className="back-top">
+          <p>
+            © {new Date().getFullYear()} {PERSONAL.name}, {PERSONAL.location}
+          </p>
+          <a href="#top" className="footer-top">
             Back to top
             <ArrowUp size={16} />
           </a>
