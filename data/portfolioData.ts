@@ -38,7 +38,6 @@ export const PERSONAL = {
   email: "balmacedamico09@gmail.com",
   phone: "+63 994 158 6734",
   photo: "/images/profile/mico.png",
-  resumeUrl: "/resume.pdf",
   education: {
     degree:
       "Bachelor of Science in Information Technology, Major in Web and Mobile Application Development",

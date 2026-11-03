@@ -2,9 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { ArrowUpRight, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { Mark } from "@/components/portfolio/Mark";
-import { PERSONAL } from "@/data/portfolioData";
 
 const links = [
   { id: "about", label: "About" },
@@ -57,15 +56,6 @@ export function Navigation() {
           ))}
         </div>
         <div className="nav-actions">
-          <a
-            href={PERSONAL.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="button button-secondary button-small"
-          >
-            Resume
-            <ArrowUpRight size={15} />
-          </a>
           <button
             type="button"
             className="icon-button"

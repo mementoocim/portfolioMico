@@ -1,4 +1,4 @@
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDown, Mail } from "lucide-react";
 import { IdBadge } from "./IdBadge";
 import { PERSONAL } from "@/data/portfolioData";
 
@@ -23,14 +23,9 @@ export function Introduction() {
               <Mail size={18} />
               Email me
             </a>
-            <a
-              className="button button-secondary"
-              href={PERSONAL.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Resume
-              <ArrowUpRight size={17} />
+            <a className="button button-secondary" href="#projects">
+              See my work
+              <ArrowDown size={17} />
             </a>
           </div>
         </div>

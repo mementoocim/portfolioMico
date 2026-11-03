@@ -220,11 +220,6 @@ code {
 .button-dark:hover {
   background: #2c2c31;
 }
-.button-small {
-  min-height: 38px;
-  padding: 0 16px;
-  font-size: 14px;
-}
 .icon-button {
   display: inline-grid;
   place-items: center;
