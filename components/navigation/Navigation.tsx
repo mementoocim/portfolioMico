@@ -78,6 +78,7 @@ export function Navigation() {
           </button>
         </div>
       </nav>
+      <span className="scroll-progress" aria-hidden="true" />
     </header>
   );
 }

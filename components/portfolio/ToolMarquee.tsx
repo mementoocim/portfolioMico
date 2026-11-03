@@ -1,7 +1,6 @@
-import { AI_TOOLS, SKILLS } from "@/data/portfolioData";
+import { AI_TOOLS, TECH_STACK } from "@/data/portfolioData";
 import { TechChip } from "./TechChip";
 
-const TECH_STACK = SKILLS.find((group) => group.title === "Tech Stack")?.skills ?? [];
 const TOOLS = [...AI_TOOLS.map((tool) => tool.name), ...TECH_STACK];
 
 /** An endless strip of tool logos. The second copy makes the loop seamless. */

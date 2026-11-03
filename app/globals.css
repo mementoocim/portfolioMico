@@ -152,7 +152,9 @@ code {
 .contact-panel h2,
 .email-row a,
 .dialog-body h2,
-.skill-file-intro h3 {
+.skill-file-intro h3,
+.support-step h3,
+.stat-value {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   font-variation-settings: "wdth" 84;
 }
@@ -267,6 +269,18 @@ code {
   border-bottom: 1px solid var(--line);
   -webkit-backdrop-filter: blur(14px) saturate(150%);
   backdrop-filter: blur(14px) saturate(150%);
+}
+/* Fills left to right as the page scrolls, where scroll-driven animations are supported. */
+.scroll-progress {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
 }
 .nav {
   display: flex;
@@ -1202,6 +1216,124 @@ code {
 }
 
 /* ---------------------------------------------------------------------------
+   Support workflow
+   --------------------------------------------------------------------------- */
+.support-steps {
+  --step-gap: 24px;
+  --step-inset: calc((100% - 4 * var(--step-gap)) / 10);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--step-gap);
+  margin-top: clamp(36px, 5vw, 64px);
+}
+/* A gray rail between the step icons, and a yellow line that draws over it on reveal. */
+.support-steps::before,
+.support-steps::after {
+  content: "";
+  position: absolute;
+  top: 31px;
+  right: var(--step-inset);
+  left: var(--step-inset);
+  height: 2px;
+  border-radius: 999px;
+  background: var(--line);
+}
+.support-steps::after {
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.support-steps.is-revealed::after {
+  transform: scaleX(1);
+}
+.support-step {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 10px;
+  text-align: center;
+}
+.support-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 0 0 8px var(--bg);
+  transition:
+    transform 350ms var(--spring),
+    background-color 200ms var(--ease),
+    border-color 200ms var(--ease),
+    color 200ms var(--ease);
+}
+.support-step:hover .support-icon {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.support-step h3 {
+  margin-top: 8px;
+  font-size: clamp(20px, 1.8vw, 24px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+.support-step p {
+  max-width: 24ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+/* ---------------------------------------------------------------------------
+   Stats
+   --------------------------------------------------------------------------- */
+.stats {
+  padding-block: clamp(24px, 4vw, 56px);
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1px solid var(--line);
+}
+.stat {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: clamp(28px, 3.4vw, 48px) clamp(16px, 2.2vw, 32px);
+}
+.stat + .stat {
+  border-left: 1px solid var(--line);
+}
+.stat::before {
+  content: "";
+  width: 28px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+.stat-value {
+  font-size: clamp(48px, 6vw, 88px);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  max-width: 22ch;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--ink-2);
+}
+
+/* ---------------------------------------------------------------------------
    Contact and footer
    --------------------------------------------------------------------------- */
 .contact {
@@ -1433,6 +1565,18 @@ code {
   .reveal-stagger > :nth-child(4) {
     transition-delay: 270ms;
   }
+  .reveal-stagger > :nth-child(5) {
+    transition-delay: 360ms;
+  }
+  .support-steps::after {
+    transition: transform 1600ms var(--ease) 250ms;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: scroll-progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
   /* Chips pop in one after another; backwards fill hands control back to the hover
      transition once each chip lands. */
   .reveal-chips:not(.is-revealed) > li {
@@ -1537,6 +1681,11 @@ code {
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes scroll-progress {
+  to {
+    transform: scaleX(1);
   }
 }
 @keyframes marquee {
@@ -1645,6 +1794,48 @@ code {
 }
 
 @media (max-width: 860px) {
+  .support-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+  .support-steps::before,
+  .support-steps::after {
+    top: 32px;
+    right: auto;
+    bottom: 32px;
+    left: 31px;
+    width: 2px;
+    height: auto;
+  }
+  .support-steps::after {
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+  }
+  .support-steps.is-revealed::after {
+    transform: scaleY(1);
+  }
+  .support-step {
+    grid-template-columns: 64px minmax(0, 1fr);
+    justify-items: start;
+    column-gap: 18px;
+    row-gap: 4px;
+    text-align: left;
+  }
+  .support-icon {
+    grid-row: span 2;
+  }
+  .support-step h3 {
+    margin-top: 6px;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .stat:nth-child(3) {
+    border-left: 0;
+  }
+  .stat:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
   .hero-grid {
     grid-template-columns: minmax(0, 1fr);
     min-height: 0;

@@ -108,6 +108,25 @@ export const PROJECTS: ProjectData[] = [
 // ---------------------------------------------------------------------------
 // Skills & Certification
 // ---------------------------------------------------------------------------
+export const TECH_STACK = [
+  "HTML5",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "PHP",
+  "Node.js",
+  "MySQL",
+  "SQL",
+  "Supabase",
+  "Git",
+  "GitHub",
+  "XAMPP",
+  "Vercel",
+];
+
 export const SKILLS: SkillCategory[] = [
   {
     title: "Customer Experience & User Support",
@@ -133,24 +152,7 @@ export const SKILLS: SkillCategory[] = [
   },
   {
     title: "Tech Stack",
-    skills: [
-      "HTML5",
-      "CSS",
-      "JavaScript",
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "PHP",
-      "Node.js",
-      "MySQL",
-      "SQL",
-      "Supabase",
-      "Git",
-      "GitHub",
-      "XAMPP",
-      "Vercel",
-    ],
+    skills: TECH_STACK,
   },
 ];
 
@@ -167,6 +169,22 @@ export const AI_TOOLS: AiTool[] = [
   { name: "Claude Code", note: "Agentic coding in the terminal" },
   { name: "Cursor AI", note: "AI-powered code editor" },
   { name: "ChatGPT", note: "AI assistant by OpenAI" },
+];
+
+// ---------------------------------------------------------------------------
+// Support Workflow
+// ---------------------------------------------------------------------------
+export interface SupportStep {
+  title: string;
+  text: string;
+}
+
+export const SUPPORT_STEPS: SupportStep[] = [
+  { title: "Listen", text: "Let the user explain, then ask the questions that matter." },
+  { title: "Reproduce", text: "Recreate the problem so the fix targets the real cause." },
+  { title: "Fix", text: "Resolve it, or escalate it with clear notes." },
+  { title: "Document", text: "Write down the steps so the next fix is faster." },
+  { title: "Follow up", text: "Check back to make sure it stays fixed." },
 ];
 
 // ---------------------------------------------------------------------------
