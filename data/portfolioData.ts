@@ -152,17 +152,21 @@ export const SKILLS: SkillCategory[] = [
       "Vercel",
     ],
   },
-  {
-    title: "AI-Assisted & Agentic Development",
-    skills: [
-      "Claude",
-      "Claude Code",
-      "ChatGPT",
-      "Cursor AI",
-      "Agentic Coding",
-      "AI-Assisted Development",
-    ],
-  },
+];
+
+// ---------------------------------------------------------------------------
+// AI-Assisted & Agentic Coding
+// ---------------------------------------------------------------------------
+export interface AiTool {
+  name: string;
+  note: string;
+}
+
+export const AI_TOOLS: AiTool[] = [
+  { name: "Claude", note: "AI assistant by Anthropic" },
+  { name: "Claude Code", note: "Agentic coding in the terminal" },
+  { name: "Cursor AI", note: "AI-powered code editor" },
+  { name: "ChatGPT", note: "AI assistant by OpenAI" },
 ];
 
 // ---------------------------------------------------------------------------

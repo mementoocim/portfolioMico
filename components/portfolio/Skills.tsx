@@ -2,13 +2,12 @@ import { Check } from "lucide-react";
 import { SKILLS } from "@/data/portfolioData";
 import { TechChip } from "./TechChip";
 
-// One look per skill group, in data order: the lead group is the core of the role, and the
-// grid runs full width, two halves, then full width again.
+// One look per skill group, in data order: the lead group is the core of the role and runs
+// full width, then the other two share a row.
 const CELLS = [
   { style: "bento-lead", list: "check" },
   { style: "bento-dark", list: "check" },
   { style: "bento-plain", list: "chips" },
-  { style: "bento-wide", list: "chips" },
 ];
 
 export function Skills() {

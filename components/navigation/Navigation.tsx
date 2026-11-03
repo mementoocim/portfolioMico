@@ -8,6 +8,7 @@ import { PERSONAL } from "@/data/portfolioData";
 
 const links = [
   { id: "about", label: "About" },
+  { id: "ai", label: "AI" },
   { id: "projects", label: "Work" },
   { id: "contact", label: "Contact" },
 ];

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const REVEAL_SELECTOR = ".reveal-on-scroll, .reveal-stagger, .reveal-chips";
+const REVEAL_SELECTOR = ".reveal-on-scroll, .reveal-stagger, .reveal-chips, .reveal-lines";
 
 export function ScrollObserver() {
   useEffect(() => {
