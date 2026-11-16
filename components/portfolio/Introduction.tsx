@@ -51,39 +51,35 @@ export function Introduction() {
       <div className="grid">
         <div className="field span-7">
           <span className="label">
-            <b>1.</b> Surname
+            <b className="no" /> Surname
           </span>
           <Comb text={surname} cells={12} />
         </div>
         <div className="field span-5">
           <span className="label">
-            <b>2.</b> First name
+            <b className="no" /> First name
           </span>
           <Comb text={firstName} cells={8} />
         </div>
-        <div className="field span-7">
+        <div className="field span-12 words-field">
           <span className="label">
-            <b>3.</b> Position desired
+            <b className="no" /> Describe yourself in six words
           </span>
-          <p className="typed typed-lg type-in">Systems and User Support</p>
+          <div className="words-wrap">
+            <p className="hand hero-words">
+              <span>Patient with people.</span> <span>Precise with systems.</span>
+            </p>
+          </div>
+        </div>
+        <div className="field span-3">
+          <span className="label">
+            <b className="no" /> Highest education
+          </span>
+          <p className="typed typed-lg">BS Information Technology, 2026</p>
         </div>
         <div className="field span-5">
           <span className="label">
-            <b>4.</b> Highest education
-          </span>
-          <p className="typed typed-lg type-in">BS Information Technology, 2026</p>
-        </div>
-        <div className="field span-12 words-field">
-          <span className="label">
-            <b>5.</b> Describe yourself in six words
-          </span>
-          <p className="hand hero-words">
-            <span>Patient with people.</span> <span>Precise with systems.</span>
-          </p>
-        </div>
-        <div className="field span-8">
-          <span className="label">
-            <b>6.</b> What you do, in one sentence
+            <b className="no" /> What you do, in one sentence
           </span>
           <p className="typed">
             IT graduate who troubleshoots software issues, tests and documents workflows, and helps
@@ -92,7 +88,7 @@ export function Introduction() {
         </div>
         <div className="field span-4">
           <span className="label">
-            <b>7.</b> To reach the applicant
+            <b className="no" /> To reach the applicant
           </span>
           <div className="actions">
             <a className="button button-solid" href={`mailto:${PERSONAL.email}`}>

@@ -4,7 +4,6 @@ import { TechLogo, brandStyle } from "./TechLogo";
 
 // The tech stack gets its own row with logos; every other group is a plain checklist.
 const CHECKLISTS = SKILLS.filter((group) => group.skills !== TECH_STACK);
-const FIRST_ITEM_NUMBER = 22;
 
 export function Skills() {
   return (
@@ -16,7 +15,7 @@ export function Skills() {
         {CHECKLISTS.map((group, groupIndex) => (
           <div className="field span-6" key={group.title}>
             <span className="label">
-              <b>{FIRST_ITEM_NUMBER + groupIndex}.</b> {group.title}
+              <b className="no" /> {group.title}
             </span>
             <ul className="tick-list typed reveal">
               {group.skills.map((skill, index) => (
@@ -30,7 +29,7 @@ export function Skills() {
         ))}
         <div className="field span-12">
           <span className="label">
-            <b>{FIRST_ITEM_NUMBER + CHECKLISTS.length}.</b> Tech stack
+            <b className="no" /> Tech stack
           </span>
           <ul className="tick-list tech-ticks typed reveal">
             {TECH_STACK.map((name, index) => (

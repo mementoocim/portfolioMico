@@ -16,13 +16,13 @@ export function SelectedWork() {
         <thead>
           <tr>
             <th scope="col">
-              <b>19.</b> System
+              <b className="no" /> System
             </th>
             <th scope="col">
-              <b>20.</b> Description
+              <b className="no" /> Description
             </th>
             <th scope="col">
-              <b>21.</b> Technologies
+              <b className="no" /> Technologies
             </th>
           </tr>
         </thead>

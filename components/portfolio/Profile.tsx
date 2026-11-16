@@ -11,7 +11,7 @@ export function Profile() {
         <div className="grid">
           <div className="field span-7 rows-3">
             <span className="label">
-              <b>8.</b> Profile summary
+              <b className="no" /> Profile summary
             </span>
             <div className="typed prose">
               <p>
@@ -30,7 +30,7 @@ export function Profile() {
           </div>
           <div className="field span-5">
             <span className="label">
-              <b>9.</b> Education
+              <b className="no" /> Education
             </span>
             <p className="typed">
               <strong>{PERSONAL.education.degree}</strong>
@@ -41,7 +41,7 @@ export function Profile() {
           </div>
           <div className="field span-5">
             <span className="label">
-              <b>10.</b> Certification
+              <b className="no" /> Certification
             </span>
             <p className="typed">
               <strong>{PERSONAL.certification.title}</strong>
@@ -62,7 +62,7 @@ export function Profile() {
           </div>
           <div className="field span-5">
             <span className="label">
-              <b>11.</b> Home address
+              <b className="no" /> Home address
             </span>
             <p className="typed">{PERSONAL.location}</p>
           </div>
@@ -77,16 +77,16 @@ export function Profile() {
           <thead>
             <tr>
               <th scope="col">
-                <b>12.</b> Inclusive dates
+                <b className="no" /> Inclusive dates
               </th>
               <th scope="col">
-                <b>13.</b> Position title
+                <b className="no" /> Position title
               </th>
               <th scope="col">
-                <b>14.</b> Office
+                <b className="no" /> Office
               </th>
               <th scope="col">
-                <b>15.</b> Duties and accomplishments
+                <b className="no" /> Duties and accomplishments
               </th>
             </tr>
           </thead>

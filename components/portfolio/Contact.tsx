@@ -34,7 +34,7 @@ export function Contact() {
       <div className="grid">
         <div className="field span-7">
           <span className="label">
-            <b>25.</b> Anything else we should know?
+            <b className="no" /> Anything else we should know?
           </span>
           <p className="hand answer reveal">
             <span className="write">Good things start with hello.</span>
@@ -46,7 +46,7 @@ export function Contact() {
         </div>
         <div className="field span-5 sign-cell">
           <span className="label">
-            <b>26.</b> Signature
+            <b className="no" /> Signature
           </span>
           <p className="signature reveal" aria-hidden="true">
             <span className="write">{PERSONAL.name}</span>

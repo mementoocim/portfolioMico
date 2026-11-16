@@ -13,7 +13,7 @@ export function AgenticCoding() {
       <div className="grid">
         <div className="field span-5">
           <span className="label">
-            <b>16.</b> How do you build software?
+            <b className="no" /> How do you build software?
           </span>
           <p className="hand answer reveal">
             <span className="write">I build with AI agents.</span>
@@ -23,7 +23,7 @@ export function AgenticCoding() {
             software, then I review what the agents produce.
           </p>
           <span className="label tools-label">
-            <b>17.</b> AI tools operated <small>(Tick all that apply)</small>
+            <b className="no" /> AI tools operated <small>(Tick all that apply)</small>
           </span>
           <ul className="tick-list tool-ticks reveal">
             {AI_TOOLS.map((tool, index) => (
@@ -48,7 +48,7 @@ export function AgenticCoding() {
         </div>
         <div className="field span-4">
           <span className="label">
-            <b>18.</b> Attach your SKILL.md
+            <b className="no" /> Attach your SKILL.md
           </span>
           <p className="typed">
             Agent skills are Markdown files that teach an AI agent how to do a job. If I wrote one
