@@ -1132,14 +1132,18 @@ code {
   display: flex;
   flex-direction: column;
 }
+/* The signature dips a little below the line, onto the printed name, the way a real one
+   signed "over printed name" does. */
 .signature {
-  margin: auto 0 -14px;
-  padding: 12px 8px 0;
-  font:
-    400 clamp(64px, 7vw, 96px) / 1 var(--font-signature),
-    cursive;
-  color: var(--ink);
-  white-space: nowrap;
+  margin: auto 0 -16px;
+  padding: 12px 6px 0;
+  line-height: 0;
+}
+.signature-mark {
+  display: block;
+  width: clamp(210px, 23vw, 300px);
+  height: auto;
+  fill: var(--ink);
 }
 .sign-line {
   padding-top: 6px;

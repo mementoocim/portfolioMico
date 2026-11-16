@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Courier_Prime, Kristi, Reenie_Beanie } from "next/font/google";
+import { Archivo, Courier_Prime, Reenie_Beanie } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
@@ -24,13 +24,6 @@ const hand = Reenie_Beanie({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-hand",
-  display: "swap",
-});
-
-const signature = Kristi({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-signature",
   display: "swap",
 });
 
@@ -74,7 +67,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${print.variable} ${typed.variable} ${hand.variable} ${signature.variable}`}
+      className={`${print.variable} ${typed.variable} ${hand.variable}`}
       suppressHydrationWarning
     >
       <body>

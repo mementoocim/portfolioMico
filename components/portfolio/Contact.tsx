@@ -1,31 +1,10 @@
-"use client";
-
-import { useEffect, useRef, useState } from "react";
-import { ArrowUp, Check, Copy, Mail } from "lucide-react";
+import { ArrowUp, Mail } from "lucide-react";
 import { PERSONAL } from "@/data/portfolioData";
+import { EmailCopy } from "./EmailCopy";
 import { Mark } from "./Mark";
+import { Signature } from "./Signature";
 
 export function Contact() {
-  const [copyState, setCopyState] = useState<"idle" | "copied" | "failed">("idle");
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-  useEffect(
-    () => () => {
-      if (timer.current) clearTimeout(timer.current);
-    },
-    [],
-  );
-
-  async function copyEmail() {
-    try {
-      await navigator.clipboard.writeText(PERSONAL.email);
-      setCopyState("copied");
-    } catch {
-      setCopyState("failed");
-    }
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => setCopyState("idle"), 3500);
-  }
-
   return (
     <footer id="contact" aria-labelledby="contact-title">
       <h2 className="bar" id="contact-title">
@@ -49,7 +28,9 @@ export function Contact() {
             <b className="no" /> Signature
           </span>
           <p className="signature reveal" aria-hidden="true">
-            <span className="write">{PERSONAL.name}</span>
+            <span className="write">
+              <Signature />
+            </span>
           </p>
           <p className="sign-line">{PERSONAL.name}</p>
           <p className="sign-note">Signature over printed name</p>
@@ -63,19 +44,7 @@ export function Contact() {
             </a>
             <div className="contact-item">
               <span className="label">Email</span>
-              <div className="email-row">
-                <a className="contact-value" href={`mailto:${PERSONAL.email}`}>
-                  {PERSONAL.email}
-                </a>
-                <button
-                  type="button"
-                  className="copy-button"
-                  onClick={copyEmail}
-                  aria-label="Copy email address"
-                >
-                  {copyState === "copied" ? <Check size={16} /> : <Copy size={16} />}
-                </button>
-              </div>
+              <EmailCopy email={PERSONAL.email} />
             </div>
             <div className="contact-item">
               <span className="label">Mobile</span>
@@ -83,13 +52,6 @@ export function Contact() {
                 {PERSONAL.phone}
               </a>
             </div>
-            <span className="copy-feedback" role="status">
-              {copyState === "copied"
-                ? "Email copied."
-                : copyState === "failed"
-                  ? "Select the email address to copy it manually."
-                  : ""}
-            </span>
           </div>
         </div>
       </div>
