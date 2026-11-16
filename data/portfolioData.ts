@@ -8,10 +8,6 @@ export interface ProjectData {
   category: string;
   summary: string;
   title: string;
-  type: string;
-  image: string;
-  imageWidth: number;
-  imageHeight: number;
   description: string;
   tags: string[];
 }
@@ -66,13 +62,39 @@ export const PROJECTS: ProjectData[] = [
     category: "Admissions & enrollment",
     summary: "A clearer path from applicant to university student.",
     title: "CollegeBound: Digital College Admission Test & Enrollment System",
-    type: "Production Campus Infrastructure, Deployed on ISU-Ilagan Campus Server",
-    image: "/images/projects/cat-system.jpg",
-    imageWidth: 1920,
-    imageHeight: 969,
     description:
       "Official campus admissions platform deployed for ISU-Ilagan university operations. Processes 3,700+ examinees with automated score computation, batch scheduling, performance level classification, competency profiling, and role-based administrative workflows.",
     tags: ["PHP", "MySQL", "JavaScript", "Tailwind CSS", "Server Deployment", "Exam Analytics"],
+  },
+  {
+    id: "mybizmate-performance",
+    shortTitle: "MyBizMate Performance",
+    category: "Work reports & KPI tracking",
+    summary: "Daily work logs, reviews and KPIs in one place.",
+    title: "MyBizMate Performance: Employee Work Reporting & KPI Tracking System",
+    description:
+      "Internal enterprise web app for employee daily work reports, KPI tracking, and review. Employees log their work in time blocks, heads validate the reports, and supervisors monitor them with analytics, with role-based access enforced in the database and PDF and Word exports.",
+    tags: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Material UI", "Row Level Security"],
+  },
+  {
+    id: "divineshield",
+    shortTitle: "DivineShield",
+    category: "Nutrition program management",
+    summary: "One system for a nutrition program's feeding sites.",
+    title: "DivineShield: Role-Based Feeding Program Management System",
+    description:
+      "Role-based system designed for MAINPI (Minister's Association Integrated Nutrition Program Inc.) and its feeding sites. Admin, staff, and church leader portals handle child registration, nutritional review based on WHO BMI-for-age rules, RFID attendance, analytics, and audit logs.",
+    tags: ["PHP", "MySQL", "JavaScript", "RFID Attendance", "Expert System", "BigQuery"],
+  },
+  {
+    id: "agosph",
+    shortTitle: "AgosPH",
+    category: "Flood data & mapping",
+    summary: "See the flood before it arrives.",
+    title: "AgosPH: Geospatial Flood-Data Workbench for Ilagan, Isabela",
+    description:
+      "Prototype geospatial flood-data workbench for Ilagan, Isabela, with 3D and 2D maps, flood scenario playback, sensor monitoring with alert thresholds, an incident log, and exportable reports. It runs on demonstration and imported data and is not an operational flood forecast.",
+    tags: ["React", "TypeScript", "Python", "FastAPI", "CesiumJS", "MapLibre"],
   },
   {
     id: "nstp-system",
@@ -80,10 +102,6 @@ export const PROJECTS: ProjectData[] = [
     category: "Enrollment & allocation",
     summary: "Less administration. More room for education.",
     title: "Enlistra: NSTP Enrollment & Automatic Section Allocation System",
-    type: "Campus Management & Algorithmic Allocation System",
-    image: "/images/projects/nstp-system.jpg",
-    imageWidth: 1920,
-    imageHeight: 969,
     description:
       "Automated university NSTP registration and class management platform featuring a Fuzzy Logic-Based Component Suggestion Engine, serial number generation, master list management, CSV bulk student ingestion, and demographic reporting.",
     tags: ["PHP", "MySQL", "Fuzzy Logic", "Tailwind CSS", "Algorithm", "Sectioning"],
@@ -94,10 +112,6 @@ export const PROJECTS: ProjectData[] = [
     category: "Biometrics & computer vision",
     summary: "A more seamless way to show up and check in.",
     title: "Biometric & Facial Recognition Attendance System",
-    type: "Computer Vision & Hardware Integration",
-    image: "/images/projects/apms-attendance.png",
-    imageWidth: 1817,
-    imageHeight: 866,
     description:
       "Contactless automated attendance system integrating camera facial recognition feeds with fingerprint biometric sensors for real-time student verification and access logging.",
     tags: ["Computer Vision", "Biometrics", "MySQL", "Hardware Integration"],

@@ -3,67 +3,124 @@ import { EXPERIENCE, PERSONAL } from "@/data/portfolioData";
 
 export function Profile() {
   return (
-    <section id="about" className="section about" aria-labelledby="about-title">
-      <div className="about-grid shell">
-        <div className="about-intro reveal-on-scroll">
-          <h2 id="about-title" className="section-title">
-            The details matter. So does the human experience.
-          </h2>
-          <div className="about-bio">
-            <p>
-              BS Information Technology graduate (Major in Web and Mobile Application Development,
-              Graduated 2026) with hands-on experience supporting users, resolving software and web
-              application issues, documenting workflows, and maintaining accurate digital records.
-              Developed and deployed the CollegeBound Admission Test System for actual school
-              operations and assisted staff during live operations.
+    <>
+      <section id="about" aria-labelledby="about-title">
+        <h2 className="bar" id="about-title">
+          <span>II.</span> Applicant profile
+        </h2>
+        <div className="grid">
+          <div className="field span-7 rows-3">
+            <span className="label">
+              <b>8.</b> Profile summary
+            </span>
+            <div className="typed prose">
+              <p>
+                BS Information Technology graduate (Major in Web and Mobile Application Development,
+                Graduated 2026) with hands-on experience supporting users, resolving software and
+                web application issues, documenting workflows, and maintaining accurate digital
+                records. Developed and deployed the CollegeBound Admission Test System for actual
+                school operations and assisted staff during live operations.
+              </p>
+              <p>
+                Adaptable, patient, and quick to learn new software, combining active listening,
+                problem solving, and attention to detail with foundational skills in PHP, MySQL, and
+                web development.
+              </p>
+            </div>
+          </div>
+          <div className="field span-5">
+            <span className="label">
+              <b>9.</b> Education
+            </span>
+            <p className="typed">
+              <strong>{PERSONAL.education.degree}</strong>
             </p>
-            <p>
-              Adaptable, patient, and quick to learn new software, combining active listening,
-              problem solving, and attention to detail with foundational skills in PHP, MySQL, and
-              web development.
+            <p className="typed typed-sm">
+              {PERSONAL.education.school}. {PERSONAL.education.period}.
             </p>
           </div>
+          <div className="field span-5">
+            <span className="label">
+              <b>10.</b> Certification
+            </span>
+            <p className="typed">
+              <strong>{PERSONAL.certification.title}</strong>
+            </p>
+            <p className="typed typed-sm">
+              {PERSONAL.certification.issuer}. {PERSONAL.certification.date}. Code{" "}
+              <code>{PERSONAL.certification.code}</code>
+            </p>
+            <a
+              className="text-link"
+              href={PERSONAL.certification.certificateUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View certificate
+              <ArrowUpRight size={15} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="field span-5">
+            <span className="label">
+              <b>11.</b> Home address
+            </span>
+            <p className="typed">{PERSONAL.location}</p>
+          </div>
         </div>
+      </section>
 
-        <div className="about-timeline reveal-on-scroll" id="experience">
-          <h3 className="timeline-heading">Experience and credentials</h3>
-          <ol className="timeline">
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 className="bar" id="experience-title">
+          <span>III.</span> Work experience <small>(Start from the most recent)</small>
+        </h2>
+        <table className="sheet-table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <b>12.</b> Inclusive dates
+              </th>
+              <th scope="col">
+                <b>13.</b> Position title
+              </th>
+              <th scope="col">
+                <b>14.</b> Office
+              </th>
+              <th scope="col">
+                <b>15.</b> Duties and accomplishments
+              </th>
+            </tr>
+          </thead>
+          <tbody>
             {EXPERIENCE.map((job) => (
-              <li className="timeline-item" key={job.role}>
-                <p className="timeline-date">{job.period}</p>
-                <h4>{job.role}</h4>
-                <p className="timeline-org">{job.organization}</p>
-                <ul className="timeline-points">
-                  {job.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              </li>
+              <tr key={job.role}>
+                <td className="typed" data-label="Inclusive dates">
+                  {job.period}
+                </td>
+                <td className="typed" data-label="Position title">
+                  <strong>{job.role}</strong>
+                </td>
+                <td className="typed" data-label="Office">
+                  {job.organization}
+                </td>
+                <td className="typed" data-label="Duties and accomplishments">
+                  <ul className="typed-list">
+                    {job.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                </td>
+              </tr>
             ))}
-            <li className="timeline-item">
-              <p className="timeline-date">{PERSONAL.education.period}</p>
-              <h4>{PERSONAL.education.degree}</h4>
-              <p className="timeline-org">{PERSONAL.education.school}</p>
-            </li>
-            <li className="timeline-item">
-              <p className="timeline-date">{PERSONAL.certification.date}</p>
-              <h4>{PERSONAL.certification.title}</h4>
-              <p className="timeline-org">
-                {PERSONAL.certification.issuer}. Code <code>{PERSONAL.certification.code}</code>
-              </p>
-              <a
-                className="text-link"
-                href={PERSONAL.certification.certificateUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View certificate
-                <ArrowUpRight size={16} />
-              </a>
-            </li>
-          </ol>
-        </div>
-      </div>
-    </section>
+            <tr className="open-row">
+              <td colSpan={4}>
+                <p className="hand reveal">
+                  <span className="write">Reserved for my next employer.</span>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </>
   );
 }

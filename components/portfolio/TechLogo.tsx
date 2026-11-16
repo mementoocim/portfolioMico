@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { Bot, Database, Sparkles } from "lucide-react";
+import { Database } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import {
   siClaude,
@@ -58,24 +58,13 @@ const BRAND_MARKS: Record<string, BrandMark> = {
 
 const GLYPHS: Record<string, LucideIcon> = {
   SQL: Database,
-  "Agentic Coding": Bot,
-  "AI-Assisted Development": Sparkles,
 };
 
-// Black marks (Next.js, GitHub, Vercel, Cursor, OpenAI) disappear on dark surfaces, so the
-// stylesheet swaps them to the ink color there.
-function isNearBlack(hex: string) {
-  const [r, g, b] = [0, 2, 4].map((start) => parseInt(hex.slice(start, start + 2), 16));
-  return r + g + b < 120;
-}
-
-/** Brand color and dark-surface flag for an element that wraps a TechLogo. */
-export function brandAttributes(name: string, style?: CSSProperties) {
+/** Inline style carrying the brand color for an element that wraps a TechLogo. The
+    blueprint theme ignores it and prints every mark in one color. */
+export function brandStyle(name: string, style?: CSSProperties) {
   const mark = BRAND_MARKS[name];
-  return {
-    style: { ...style, ...(mark && { "--brand": `#${mark.hex}` }) } as CSSProperties,
-    "data-near-black": mark && isNearBlack(mark.hex) ? "" : undefined,
-  };
+  return { ...style, ...(mark && { "--brand": `#${mark.hex}` }) } as CSSProperties;
 }
 
 export function TechLogo({ name }: { name: string }) {
@@ -89,13 +78,4 @@ export function TechLogo({ name }: { name: string }) {
   }
   const Glyph = GLYPHS[name];
   return Glyph ? <Glyph className="tech-glyph" aria-hidden="true" /> : null;
-}
-
-export function TechChip({ name, index }: { name: string; index: number }) {
-  return (
-    <li className="tech-chip" {...brandAttributes(name, { "--i": index } as CSSProperties)}>
-      <TechLogo name={name} />
-      {name}
-    </li>
-  );
 }

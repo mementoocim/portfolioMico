@@ -1,24 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
+import { Archivo, Courier_Prime, Kristi, Reenie_Beanie } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-const display = Bricolage_Grotesque({
+// Printed matter: form title, labels, section bars.
+const print = Archivo({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-print",
   display: "swap",
-  axes: ["opsz", "wdth"],
+  axes: ["wdth"],
 });
 
-const body = Geist({
+// Typewritten answers.
+const typed = Courier_Prime({
   subsets: ["latin"],
-  variable: "--font-body",
+  weight: ["400", "700"],
+  variable: "--font-typed",
   display: "swap",
 });
 
-const mono = Geist_Mono({
+// Ballpoint handwriting: letters in boxes, big answers, numbers.
+const hand = Reenie_Beanie({
   subsets: ["latin"],
-  variable: "--font-mono",
+  weight: "400",
+  variable: "--font-hand",
+  display: "swap",
+});
+
+const signature = Kristi({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-signature",
   display: "swap",
 });
 
@@ -26,8 +38,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f4f4f5" },
-    { media: "(prefers-color-scheme: dark)", color: "#111113" },
+    { media: "(prefers-color-scheme: light)", color: "#dfc08c" },
+    { media: "(prefers-color-scheme: dark)", color: "#071327" },
   ],
 };
 
@@ -62,7 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${display.variable} ${body.variable} ${mono.variable}`}
+      className={`${print.variable} ${typed.variable} ${hand.variable} ${signature.variable}`}
       suppressHydrationWarning
     >
       <body>

@@ -1,8 +1,11 @@
-import type { CSSProperties } from "react";
-import { Bot, Code2, FlaskConical, ListChecks, UserCheck } from "lucide-react";
+import { Code2, FlaskConical, ListChecks, UserCheck } from "lucide-react";
+import { cssVars } from "./FormParts";
 
-const CENTER = 260;
-const RADIUS = 190;
+const CX = 280;
+const CY = 200;
+const RX = 200;
+const RY = 138;
+const NODE_RADIUS = 47;
 
 const STEPS = [
   { label: "Plan", Icon: ListChecks },
@@ -11,84 +14,96 @@ const STEPS = [
   { label: "Review", Icon: UserCheck },
 ];
 
-// A point on the loop, measured clockwise from the top.
+const round = (value: number) => Math.round(value * 10) / 10;
+
+// A point on the loop and the direction of travel there, measured clockwise from the top.
 function pointAt(degrees: number) {
-  const radians = (degrees * Math.PI) / 180;
+  const t = (degrees * Math.PI) / 180;
   return {
-    x: CENTER + RADIUS * Math.sin(radians),
-    y: CENTER - RADIUS * Math.cos(radians),
+    x: round(CX + RX * Math.sin(t)),
+    y: round(CY - RY * Math.cos(t)),
+    heading: round((Math.atan2(RY * Math.sin(t), RX * Math.cos(t)) * 180) / Math.PI),
   };
 }
 
-/** The agent loop. A yellow pulse runs clockwise and lights each step as it passes. */
+// The whole loop as one path that starts at the top and runs clockwise.
+const TRACK = [
+  `M ${CX} ${CY - RY}`,
+  `A ${RX} ${RY} 0 0 1 ${CX + RX} ${CY}`,
+  `A ${RX} ${RY} 0 0 1 ${CX} ${CY + RY}`,
+  `A ${RX} ${RY} 0 0 1 ${CX - RX} ${CY}`,
+  `A ${RX} ${RY} 0 0 1 ${CX} ${CY - RY}`,
+].join(" ");
+
+/** The agent loop as a pen sketch. A heavier pen mark keeps circling the loop and each
+    step is shaded as the mark passes it. */
 export function AgentLoop() {
   return (
-    <svg className="agent-loop" viewBox="0 0 520 520" role="img" aria-labelledby="agent-loop-title">
+    <svg className="agent-loop" viewBox="0 0 560 400" role="img" aria-labelledby="agent-loop-title">
       <title id="agent-loop-title">
         The agent loop: plan, build and test with an AI agent, then I review, and repeat.
       </title>
       <defs>
-        <radialGradient id="agent-core-glow" cx="50%" cy="45%" r="60%">
-          <stop offset="0%" stopColor="#fcc92b" stopOpacity="0.32" />
-          <stop offset="100%" stopColor="#fcc92b" stopOpacity="0" />
-        </radialGradient>
+        <pattern
+          id="pen-hatch"
+          width="7"
+          height="7"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(38)"
+        >
+          <line x1="0" y1="0" x2="0" y2="7" stroke="currentColor" strokeWidth="1.6" />
+        </pattern>
       </defs>
 
-      <circle className="loop-orbit" cx={CENTER} cy={CENTER} r={240} />
-      <circle className="loop-track" cx={CENTER} cy={CENTER} r={RADIUS} />
-      <circle
-        className="loop-flow"
-        cx={CENTER}
-        cy={CENTER}
-        r={RADIUS}
-        transform={`rotate(-90 ${CENTER} ${CENTER})`}
-      />
-      {[45, 135, 225, 315].map((degrees) => {
-        const { x, y } = pointAt(degrees);
-        return (
-          <path
-            key={degrees}
-            className="loop-arrow"
-            d="M -5 -7 L 4 0 L -5 7"
-            transform={`translate(${x} ${y}) rotate(${degrees})`}
-          />
-        );
-      })}
-
-      <circle
-        className="loop-core-glow"
-        cx={CENTER}
-        cy={CENTER}
-        r={130}
-        fill="url(#agent-core-glow)"
-      />
-      <circle className="loop-core" cx={CENTER} cy={CENTER} r={84} />
-      <Bot
-        className="loop-core-icon"
-        x={CENTER - 19}
-        y={CENTER - 50}
-        size={38}
-        strokeWidth={1.75}
-      />
-      <text className="loop-core-title" x={CENTER} y={CENTER + 14} textAnchor="middle">
-        AI agent
-      </text>
-      <text className="loop-core-note" x={CENTER} y={CENTER + 36} textAnchor="middle">
-        human in the loop
-      </text>
+      <g className="loop-sketch">
+        <path className="loop-track" d={TRACK} pathLength={1} />
+        <path className="loop-pulse" d={TRACK} pathLength={1} />
+        {[45, 135, 225, 315].map((degrees) => {
+          const { x, y, heading } = pointAt(degrees);
+          return (
+            <path
+              key={degrees}
+              d="M -11 -8 L 0 0 L -11 8"
+              transform={`translate(${x} ${y}) rotate(${heading})`}
+            />
+          );
+        })}
+        {STEPS.map((step, index) => {
+          const { x, y } = pointAt(index * 90);
+          return (
+            <g key={step.label}>
+              <circle className="loop-node" cx={x} cy={y} r={NODE_RADIUS} />
+              <circle
+                className="loop-hatch"
+                cx={x}
+                cy={y}
+                r={NODE_RADIUS - 3}
+                fill="url(#pen-hatch)"
+                style={cssVars({ "--n": index })}
+              />
+            </g>
+          );
+        })}
+        <path d={`M ${CX - 78} ${CY + 12} q 40 9 80 2 t 78 -3`} />
+      </g>
 
       {STEPS.map(({ label, Icon }, index) => {
         const { x, y } = pointAt(index * 90);
         return (
-          <g className="loop-step" key={label} style={{ "--n": index } as CSSProperties}>
-            <circle className="loop-step-bg" cx={x} cy={y} r={50} />
-            <Icon className="loop-step-icon" x={x - 13} y={y - 27} size={26} strokeWidth={2} />
-            <text className="loop-step-label" x={x} y={y + 22} textAnchor="middle">
+          <g key={label}>
+            <Icon className="loop-icon" x={x - 13} y={y - 32} size={26} strokeWidth={2} />
+            <text className="loop-text loop-label" x={x} y={y + 22} textAnchor="middle">
               {label}
             </text>
           </g>
         );
       })}
+      <text className="loop-text loop-core-title" x={CX} y={CY + 2} textAnchor="middle">
+        AI agent
+      </text>
+      <text className="loop-text loop-core-note" x={CX} y={CY + 40} textAnchor="middle">
+        human in the loop
+      </text>
     </svg>
   );
 }

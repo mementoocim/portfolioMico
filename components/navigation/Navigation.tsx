@@ -2,14 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
 import { Mark } from "@/components/portfolio/Mark";
 
 const links = [
   { id: "about", label: "About" },
   { id: "ai", label: "AI" },
   { id: "projects", label: "Work" },
+  { id: "skills", label: "Skills" },
   { id: "contact", label: "Contact" },
+];
+
+// The two themes are two copies of the same form.
+const copies = [
+  { theme: "light", label: "Original" },
+  { theme: "dark", label: "Blueprint" },
 ];
 
 export function Navigation() {
@@ -35,40 +41,46 @@ export function Navigation() {
   }, []);
 
   return (
-    <header className="site-header">
-      <nav className="nav shell" aria-label="Main navigation">
+    <header className="tabs">
+      <div className="tabs-inner">
         <a href="#top" className="brand" aria-label="Mico Balmaceda, back to top">
           <Mark />
           <span>
             mico<span className="brand-dot">.</span>
           </span>
         </a>
-        <div className="nav-links">
+        <nav className="tab-list" aria-label="Main navigation">
           {links.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={active === link.id ? "is-active" : undefined}
+              className={active === link.id ? "tab is-active" : "tab"}
               aria-current={active === link.id ? "location" : undefined}
             >
               {link.label}
             </a>
           ))}
+        </nav>
+        <div className="copy-switch" role="radiogroup" aria-label="Copy of the form">
+          <span className="copy-label" aria-hidden="true">
+            Copy
+          </span>
+          {copies.map((copy) => (
+            <button
+              key={copy.theme}
+              type="button"
+              role="radio"
+              className="copy-option"
+              aria-checked={mounted && resolvedTheme === copy.theme}
+              onClick={() => setTheme(copy.theme)}
+            >
+              <span className="radio" aria-hidden="true" />
+              {copy.label}
+            </button>
+          ))}
         </div>
-        <div className="nav-actions">
-          <button
-            type="button"
-            className="icon-button"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            aria-label={
-              mounted && resolvedTheme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-            }
-          >
-            {mounted && resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-        </div>
-      </nav>
-      <span className="scroll-progress" aria-hidden="true" />
+        <span className="scroll-progress" aria-hidden="true" />
+      </div>
     </header>
   );
 }

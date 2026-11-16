@@ -2,20 +2,16 @@
 
 import { useEffect } from "react";
 
-const REVEAL_SELECTOR = ".reveal-on-scroll, .reveal-stagger, .reveal-chips, .reveal-lines";
+const REVEAL_SELECTOR = ".reveal";
 
+/** Marks `.reveal` elements as they scroll into view. The stylesheet only hides anything
+    once this has run (`.js-reveal`), so the page is complete without it. */
 export function ScrollObserver() {
   useEffect(() => {
-    // Check if user prefers reduced motion
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => {
-        el.classList.add("is-revealed");
-      });
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const elements = document.querySelectorAll(REVEAL_SELECTOR);
-    if (!elements.length) return;
+    const root = document.documentElement;
+    root.classList.add("js-reveal");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -27,14 +23,17 @@ export function ScrollObserver() {
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px",
       },
     );
 
-    elements.forEach((el) => observer.observe(el));
+    document.querySelectorAll(REVEAL_SELECTOR).forEach((el) => observer.observe(el));
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      root.classList.remove("js-reveal");
+    };
   }, []);
 
   return null;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUp, ArrowUpRight, Check, Copy, Mail } from "lucide-react";
+import { ArrowUp, Check, Copy, Mail } from "lucide-react";
 import { PERSONAL } from "@/data/portfolioData";
 import { Mark } from "./Mark";
 
@@ -27,62 +27,90 @@ export function Contact() {
   }
 
   return (
-    <footer id="contact" className="contact">
-      <div className="shell">
-        <div className="contact-panel reveal-on-scroll">
-          <div className="contact-copy">
-            <h2>Good things start with hello.</h2>
-            <p>
-              Looking for someone patient, tech-savvy, and attentive to user needs? Whether it’s
-              user support, customer experience, or system workflows, I’d love to connect.
-            </p>
-          </div>
-          <div className="contact-actions">
-            <a className="button button-dark" href={`mailto:${PERSONAL.email}`}>
-              <Mail size={18} />
+    <footer id="contact" aria-labelledby="contact-title">
+      <h2 className="bar" id="contact-title">
+        <span>VIII.</span> Contact and signature
+      </h2>
+      <div className="grid">
+        <div className="field span-7">
+          <span className="label">
+            <b>25.</b> Anything else we should know?
+          </span>
+          <p className="hand answer reveal">
+            <span className="write">Good things start with hello.</span>
+          </p>
+          <p className="typed">
+            Looking for someone patient, tech-savvy, and attentive to user needs? Whether it’s user
+            support, customer experience, or system workflows, I’d love to connect.
+          </p>
+        </div>
+        <div className="field span-5 sign-cell">
+          <span className="label">
+            <b>26.</b> Signature
+          </span>
+          <p className="signature reveal" aria-hidden="true">
+            <span className="write">{PERSONAL.name}</span>
+          </p>
+          <p className="sign-line">{PERSONAL.name}</p>
+          <p className="sign-note">Signature over printed name</p>
+        </div>
+        <div className="field span-12 office-use">
+          <span className="label">For employer use only</span>
+          <div className="office-grid">
+            <a className="button button-solid" href={`mailto:${PERSONAL.email}`}>
+              <Mail size={16} aria-hidden="true" />
               Email me
             </a>
-            <div className="contact-lines">
+            <div className="contact-item">
+              <span className="label">Email</span>
               <div className="email-row">
-                <a href={`mailto:${PERSONAL.email}`}>{PERSONAL.email}</a>
+                <a className="contact-value" href={`mailto:${PERSONAL.email}`}>
+                  {PERSONAL.email}
+                </a>
                 <button
                   type="button"
                   className="copy-button"
                   onClick={copyEmail}
                   aria-label="Copy email address"
                 >
-                  {copyState === "copied" ? <Check size={17} /> : <Copy size={17} />}
+                  {copyState === "copied" ? <Check size={16} /> : <Copy size={16} />}
                 </button>
               </div>
-              <span className="copy-feedback" role="status">
-                {copyState === "copied"
-                  ? "Email copied."
-                  : copyState === "failed"
-                    ? "Select the email address to copy it manually."
-                    : ""}
-              </span>
-              <a className="phone-link" href={`tel:${PERSONAL.phone.replace(/[^0-9+]/g, "")}`}>
+            </div>
+            <div className="contact-item">
+              <span className="label">Mobile</span>
+              <a className="contact-value" href={`tel:${PERSONAL.phone.replace(/[^0-9+]/g, "")}`}>
                 {PERSONAL.phone}
-                <ArrowUpRight size={15} />
               </a>
             </div>
+            <span className="copy-feedback" role="status">
+              {copyState === "copied"
+                ? "Email copied."
+                : copyState === "failed"
+                  ? "Select the email address to copy it manually."
+                  : ""}
+            </span>
           </div>
         </div>
-        <div className="footer-bar">
-          <a href="#top" className="brand" aria-label="Back to top">
-            <Mark />
-            <span>
-              mico<span className="brand-dot">.</span>
-            </span>
-          </a>
-          <p>
-            © {new Date().getFullYear()} {PERSONAL.name}, {PERSONAL.location}
-          </p>
-          <a href="#top" className="footer-top">
-            Back to top
-            <ArrowUp size={16} />
-          </a>
-        </div>
+      </div>
+      <p className="nothing-follows" aria-hidden="true">
+        x x x &nbsp;Nothing follows&nbsp; x x x
+      </p>
+      <div className="colophon">
+        <a href="#top" className="brand" aria-label="Back to top">
+          <Mark />
+          <span>
+            mico<span className="brand-dot">.</span>
+          </span>
+        </a>
+        <p>
+          MB Form No. 1 (Revised 2026). © {new Date().getFullYear()} {PERSONAL.name},{" "}
+          {PERSONAL.location}
+        </p>
+        <a href="#top" className="footer-top">
+          Back to top
+          <ArrowUp size={15} aria-hidden="true" />
+        </a>
       </div>
     </footer>
   );

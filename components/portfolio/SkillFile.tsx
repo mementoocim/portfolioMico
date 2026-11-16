@@ -1,5 +1,5 @@
-import type { CSSProperties, ReactNode } from "react";
-import { FileText } from "lucide-react";
+import type { ReactNode } from "react";
+import { PaperClip, cssVars } from "./FormParts";
 
 // Written in the Agent Skills format that Claude Code reads: YAML frontmatter with a name
 // and a description, then Markdown instructions.
@@ -57,21 +57,22 @@ function highlight(line: string, inFrontmatter: boolean): ReactNode {
   return line;
 }
 
+/** SKILL.md as a typed sheet, paper-clipped to the form. It types itself in on reveal. */
 export function SkillFile() {
   const lines = SKILL_FILE.split("\n");
   const frontmatterEnd = lines.indexOf("---", 1);
 
   return (
-    <figure className="skill-file reveal-on-scroll" aria-label="SKILL.md describing Mico">
-      <figcaption className="skill-file-bar">
-        <FileText size={15} aria-hidden="true" />
+    <figure className="skill-sheet reveal" aria-label="SKILL.md describing Mico">
+      <PaperClip />
+      <figcaption className="skill-sheet-bar">
         SKILL.md
-        <span className="skill-file-path">.claude/skills/mico-balmaceda/</span>
+        <span className="skill-sheet-path">.claude/skills/mico-balmaceda/</span>
       </figcaption>
       <pre>
-        <code className="reveal-lines">
+        <code>
           {lines.map((line, index) => (
-            <span className="md-line" key={index} style={{ "--i": index } as CSSProperties}>
+            <span className="md-line" key={index} style={cssVars({ "--i": index })}>
               {highlight(line, index > 0 && index < frontmatterEnd)}
               {index === lines.length - 1 && <span className="md-caret" aria-hidden="true" />}
             </span>

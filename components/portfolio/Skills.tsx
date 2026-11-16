@@ -1,47 +1,48 @@
-import { Check } from "lucide-react";
-import { SKILLS } from "@/data/portfolioData";
-import { TechChip } from "./TechChip";
+import { SKILLS, TECH_STACK } from "@/data/portfolioData";
+import { TickBox, cssVars } from "./FormParts";
+import { TechLogo, brandStyle } from "./TechLogo";
 
-// One look per skill group, in data order: the lead group is the core of the role and runs
-// full width, then the other two share a row.
-const CELLS = [
-  { style: "bento-lead", list: "check" },
-  { style: "bento-dark", list: "check" },
-  { style: "bento-plain", list: "chips" },
-];
+// The tech stack gets its own row with logos; every other group is a plain checklist.
+const CHECKLISTS = SKILLS.filter((group) => group.skills !== TECH_STACK);
+const FIRST_ITEM_NUMBER = 22;
 
 export function Skills() {
   return (
-    <section id="skills" className="section skills" aria-labelledby="skills-title">
-      <div className="shell">
-        <h2 id="skills-title" className="section-title reveal-on-scroll">
-          What I bring to a team
-        </h2>
-        <div className="bento reveal-stagger">
-          {SKILLS.map((category, index) => {
-            const cell = CELLS[index] ?? CELLS[2];
-            return (
-              <article className={`bento-cell ${cell.style}`} key={category.title}>
-                <h3>{category.title}</h3>
-                {cell.list === "chips" ? (
-                  <ul className="chip-list reveal-chips">
-                    {category.skills.map((skill, chipIndex) => (
-                      <TechChip key={skill} name={skill} index={chipIndex} />
-                    ))}
-                  </ul>
-                ) : (
-                  <ul className="check-list">
-                    {category.skills.map((skill) => (
-                      <li key={skill}>
-                        <Check size={18} strokeWidth={2.5} aria-hidden="true" />
-                        {skill}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </article>
-            );
-          })}
+    <section id="skills" aria-labelledby="skills-title">
+      <h2 className="bar" id="skills-title">
+        <span>VII.</span> Qualifications <small>(Tick all that apply)</small>
+      </h2>
+      <div className="grid">
+        {CHECKLISTS.map((group, groupIndex) => (
+          <div className="field span-6" key={group.title}>
+            <span className="label">
+              <b>{FIRST_ITEM_NUMBER + groupIndex}.</b> {group.title}
+            </span>
+            <ul className="tick-list typed reveal">
+              {group.skills.map((skill, index) => (
+                <li key={skill} style={cssVars({ "--i": index })}>
+                  <TickBox />
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        <div className="field span-12">
+          <span className="label">
+            <b>{FIRST_ITEM_NUMBER + CHECKLISTS.length}.</b> Tech stack
+          </span>
+          <ul className="tick-list tech-ticks typed reveal">
+            {TECH_STACK.map((name, index) => (
+              <li key={name} style={brandStyle(name, cssVars({ "--i": index }))}>
+                <TickBox />
+                <span className="tool-logo">
+                  <TechLogo name={name} />
+                </span>
+                <span className="tool-name">{name}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
